@@ -101,7 +101,7 @@ bool FileWorker::ModifyLineInFile(const QString &filePath, int id, const QString
     return true;
 }
 
-bool FileWorker::AddObjectToFile(const QString &filePath, const QStringList &valuesWithoutId) {
+int FileWorker::AddObjectToFile(const QString &filePath, const QStringList &valuesWithoutId) {
     QFile file(filePath);
 
     int newId = 1;
@@ -109,7 +109,7 @@ bool FileWorker::AddObjectToFile(const QString &filePath, const QStringList &val
     if (file.exists()) {
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qWarning("Nie można otworzyć pliku");
-            return false;
+            return 0;
         }
 
         QTextStream in(&file);
@@ -128,7 +128,7 @@ bool FileWorker::AddObjectToFile(const QString &filePath, const QStringList &val
 
     if (!file.open(QIODevice::Append | QIODevice::Text)) {
         qWarning("Nie można zapisać do pliku");
-        return false;
+        return 0;
     }
 
     QTextStream out(&file);
@@ -138,5 +138,5 @@ bool FileWorker::AddObjectToFile(const QString &filePath, const QStringList &val
     out << fullValues.join("\t") << "\n";
 
     file.close();
-    return true;
+    return newId;
 }

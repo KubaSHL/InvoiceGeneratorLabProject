@@ -58,19 +58,6 @@
      <string>Dodaj</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_update">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>20</y>
-      <width>77</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Zaktualizuj</string>
-    </property>
-   </widget>
   </widget>
  </widget>
  <resources/>

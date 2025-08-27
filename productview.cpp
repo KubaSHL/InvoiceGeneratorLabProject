@@ -47,8 +47,6 @@ void ProductView::ShowProducts(){
     }
 }
 
-void ProductView::GetData(){
-}
 
 void ProductView::on_pushButton_add_clicked()
 {

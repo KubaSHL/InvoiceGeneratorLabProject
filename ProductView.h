@@ -30,7 +30,6 @@ private:
     void GetData();
     Ui::ProductView *ui;
     DialogAddProduct dialogAddProduct;
-    QWidget *QWidget;
     QStandardItemModel *model;
 
 };

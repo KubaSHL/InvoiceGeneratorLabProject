@@ -8,10 +8,11 @@ class InvoiceRepository
 {
 public:
     InvoiceRepository();
-    InvoiceBodyModel GetInvoice();
-    bool AddInvoice(InvoiceBodyModel inv);
+    InvoiceBodyModel GetInvoice(int id);
+    bool AddInvoice(InvoiceBodyModel inv, int &invoiceId);
     bool DeleteInvoice(InvoiceBodyModel inv);
     bool UpdateInvoice(InvoiceBodyModel inv);
+    QList<InvoiceBodyModel> GetAllInvoices();
 };
 
 #endif // INVOICEREPOSITORY_H

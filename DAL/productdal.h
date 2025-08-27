@@ -3,8 +3,6 @@
 
 #include <Model/productmodel.h>
 #include <Workers/fileworker.h>
-#include <QCoreApplication>
-#include <QDir>
 #include <qlist.h>
 
 

@@ -9,6 +9,10 @@ QList<ProductModel> ProductService::GetAllProducts(){
     return ProductRepository().GetAllProducts();
 }
 
+ProductModel ProductService::GetProduct(int id){
+    return ProductRepository().GetProduct(id);
+}
+
 bool ProductService::AddProduct(ProductModel pm){
     return ProductRepository().AddProduct(pm);
 }

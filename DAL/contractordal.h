@@ -10,7 +10,7 @@ public:
     ContractorDAL();
     QList<ContractorModel> GetAllContractors();
     ContractorModel GetContractor(int id);
-    bool SaveContractor(ContractorModel ct);
+    bool AddContractor(ContractorModel ct);
     bool DeleteContractor(ContractorModel ct);
     bool UpdateContractor(ContractorModel ct);
 

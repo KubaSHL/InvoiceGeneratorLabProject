@@ -11,12 +11,12 @@ class ProductRepository
 public:
     ProductRepository();
     ProductModel GetProduct(int id);
+    QList<ProductModel> GetAllProducts();
     bool AddProduct(ProductModel pm);
     bool UpdateProduct(ProductModel pm);
     bool DeleteProduct(ProductModel pm);
 
 
-    QList<ProductModel> GetAllProducts();
 };
 
 #endif // PRODUCTREPOSITORY_H

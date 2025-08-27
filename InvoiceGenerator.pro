@@ -11,12 +11,15 @@ CONFIG += c++17
 SOURCES += \
     DAL/contractordal.cpp \
     DAL/invoicedal.cpp \
+    DAL/invoicepositiondal.cpp \
     DAL/productdal.cpp \
     Model/contractormodel.cpp \
     Model/invoicebodymodel.cpp \
+    Model/positionmodel.cpp \
     Model/productmodel.cpp \
     Repository/contractorrepository.cpp \
     Repository/invoicerepository.cpp \
+    Repository/positionrepository.cpp \
     Repository/productrepository.cpp \
     Service/contractorservice.cpp \
     Service/invoiceservice.cpp \
@@ -25,6 +28,7 @@ SOURCES += \
     contractorsview.cpp \
     dialogaddcontractor.cpp \
     dialogaddproduct.cpp \
+    invoicedetailsview.cpp \
     invoiceview.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -33,12 +37,15 @@ SOURCES += \
 HEADERS += \
     DAL/contractordal.h \
     DAL/invoicedal.h \
+    DAL/invoicepositiondal.h \
     DAL/productdal.h \
     Model/contractormodel.h \
     Model/invoicebodymodel.h \
+    Model/positionmodel.h \
     Model/productmodel.h \
     Repository/contractorrepository.h \
     Repository/invoicerepository.h \
+    Repository/positionrepository.h \
     Repository/productrepository.h \
     Service/contractorservice.h \
     Service/invoiceservice.h \
@@ -47,6 +54,7 @@ HEADERS += \
     contractorsview.h \
     dialogaddcontractor.h \
     dialogaddproduct.h \
+    invoicedetailsview.h \
     invoiceview.h \
     mainwindow.h \
     productview.h
@@ -55,6 +63,7 @@ FORMS += \
     contractorsview.ui \
     dialogaddcontractor.ui \
     dialogaddproduct.ui \
+    invoicedetailsview.ui \
     invoiceview.ui \
     mainwindow.ui \
     productview.ui

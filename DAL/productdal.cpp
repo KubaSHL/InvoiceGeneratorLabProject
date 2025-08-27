@@ -21,6 +21,7 @@ QList<ProductModel> ProductDAL::GetAllProducts(){
         pm.setVAT(line[5].toFloat());
         pm.setPriceGross(line[6].toFloat());
         allProducts.append(pm);
+        break;
     }
     return allProducts;
 }
@@ -29,15 +30,17 @@ QList<ProductModel> ProductDAL::GetAllProducts(){
 ProductModel ProductDAL::GetProduct(int id){
     ProductModel pm;
     for (const QStringList &line :  fileWorker->ReadFileContent(filePath)) {
-        ProductModel pm;
-        pm.setId(line[0].toInt());
-        pm.setName(line[1].toStdString());
-        pm.setEan(line[2].toStdString());
-        pm.setManofacturer(line[3].toStdString());
-        pm.setPriceNet(line[4].toFloat());
-        pm.setVAT(line[5].toFloat());
-        pm.setPriceGross(line[6].toFloat());
-
+        if(line[0].toInt()==id)
+        {
+            ProductModel pm;
+            pm.setId(line[0].toInt());
+            pm.setName(line[1].toStdString());
+            pm.setEan(line[2].toStdString());
+            pm.setManofacturer(line[3].toStdString());
+            pm.setPriceNet(line[4].toFloat());
+            pm.setVAT(line[5].toFloat());
+            pm.setPriceGross(line[6].toFloat());
+        }
     }
     return pm;
 }
@@ -51,7 +54,7 @@ bool ProductDAL::SaveProduct(ProductModel pm){
     QString vat = QString::number(pm.getVAT());
     QString grossPrice = QString::number(pm.getPriceGross());
     QStringList newPm = {name,ean,manofacturer,netPrice,vat,grossPrice};
-    return fileWorker->AddObjectToFile(filePath,newPm);
+    return fileWorker->AddObjectToFile(filePath,newPm)==0?false:true;
 }
 
 bool ProductDAL::DeleteProduct(ProductModel pm){
