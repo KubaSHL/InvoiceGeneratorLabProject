@@ -3,6 +3,7 @@ Repozytoriu ma github https://github.com/KubaSHL/InvoiceGeneratorLabProject.git
 
 Nie wszystko jest dopieszczone, wydruk też wygląda markowo ale to proof of concept.
 Nie dodałem tez ustawiania własnych ścieżek i tworzenia plików bazy.
+Zarządzanie pamięcią też jest słabe.
 
 Z ciekawych funkcji:
 podwójne kliknięcie na fakture otwiera informacje o niej i pozwala na modyfikacje
