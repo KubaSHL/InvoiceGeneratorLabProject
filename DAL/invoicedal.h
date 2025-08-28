@@ -13,8 +13,9 @@ public:
     bool UpdateInvoice(InvoiceBodyModel inv);
     InvoiceBodyModel GetInvoice(int id);
     QList<InvoiceBodyModel> GetAllInvoices();
+    QList<InvoiceBodyModel> GetInvoiceByContractor(int contractorId);
 private:
-    const QString filePath = "C:\\Users\\sageh\\Downloads\\InvoiceGenerator\\InvoiceGenerator\\Database\\Invoices.txt";//do zmiany
+    const QString filePath = "..\\..\\..\\InvoiceGenerator\\Database\\Invoices.txt";//do zmiany
     FileWorker* fileWorker;
 
 };

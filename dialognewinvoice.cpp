@@ -190,3 +190,22 @@ void DialogNewInvoice::on_buttonBox_accepted()
     ShowPositions();
 }
 
+
+void DialogNewInvoice::on_pushButton_delPos_clicked()
+{
+    QModelIndex currentIndex = ui->tableWidget_newpositions->currentIndex();
+      if (!currentIndex.isValid()) {
+          QMessageBox::warning(this, "Uwaga", "Proszę zaznaczyć produkt do usunięcia.");
+          return;
+      }
+
+      int row = currentIndex.row();
+
+      quantities.remove(products[row].getId());
+
+      products.removeAt(row);
+
+      ShowPositions();
+
+}
+

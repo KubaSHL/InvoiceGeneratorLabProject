@@ -16,7 +16,7 @@ public:
     bool DeleteProduct(ProductModel pm);
     bool UpdateProduct(ProductModel pm);
 private:
-    const QString filePath = "C:\\Users\\sageh\\Downloads\\InvoiceGenerator\\InvoiceGenerator\\Database\\products.txt";//do zmiany
+    const QString filePath = "..\\..\\..\\InvoiceGenerator\\Database\\products.txt";//do zmiany
     FileWorker* fileWorker;
 };
 

@@ -90,7 +90,7 @@ void ContractorsView::on_pushButton_del_clicked()
 {
     QModelIndex currentIndex = ui->tableView->currentIndex();
     if (!currentIndex.isValid()) {
-        QMessageBox::warning(this, "Uwaga", "Proszę zaznaczyć Kontrahent do aktualizacji.");
+        QMessageBox::warning(this, "Uwaga", "Proszę zaznaczyć Kontrahent do usunięcia.");
         return;
     }
 
@@ -105,11 +105,11 @@ void ContractorsView::on_pushButton_del_clicked()
 
     if(ContractorService().DeleteContractor(ct)){
 
-        QMessageBox::information(this, "Info", "Kontrahent został zaktualizowany.");
+        QMessageBox::information(this, "Info", "Kontrahent został usunięty.");
     }
     else
     {
-        QMessageBox::warning(this, "Uwaga", "Kontrahent nie został zaktualizowany.");
+        QMessageBox::warning(this, "Uwaga", "Kontrahent nie może zostać usunięty, był użyty na fakturze.");
     }
 
     ShowContractors();

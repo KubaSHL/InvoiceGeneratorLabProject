@@ -1,6 +1,7 @@
 #include "Service/contractorservice.h"
 #include "Service/invoiceservice.h"
 #include "Service/productservice.h"
+#include "Workers/pdfworker.h"
 #include "ui_invoicedetailsview.h"
 
 #include <InvoiceDetailsView.h>
@@ -182,5 +183,13 @@ void InvoiceDetailsView::on_tableWidget_positions_cellChanged(int row, int colum
             item4->setText(QString::number(quantity * priceNet));
         }
     }
+}
+
+
+void InvoiceDetailsView::on_pushButton_clicked()
+{
+    worker.SetInvoice(invoice);
+    worker.PrintHTML();
+    QMessageBox::information(this,"Info","Wygenerowano PDF'a.");
 }
 

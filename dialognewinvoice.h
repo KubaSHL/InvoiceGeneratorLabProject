@@ -31,6 +31,8 @@ private slots:
 
     void on_buttonBox_accepted();
 
+    void on_pushButton_delPos_clicked();
+
 private:
     Ui::DialogNewInvoice *ui;
     QList<ProductModel> products;

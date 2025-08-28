@@ -19,6 +19,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_invoice_clicked()
 {
+    invoiceView.ShowInvoices();
     ui->stackedWidget->setCurrentWidget(&invoiceView);
 
 }
@@ -34,6 +35,7 @@ void MainWindow::on_pushButton_product_clicked()
 
 void MainWindow::on_pushButton_contractor_clicked()
 {
+    contractorsView.ShowContractors();
     ui->stackedWidget->setCurrentWidget(&contractorsView);
 
 }

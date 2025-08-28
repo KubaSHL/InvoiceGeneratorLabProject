@@ -101,3 +101,4 @@ QList<PositionModel> InvoicePositionDAL::GetPositionWithProductId(int productId)
     }
     return allPositions;
 }
+

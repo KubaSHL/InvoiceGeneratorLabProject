@@ -1,2 +1,4 @@
 1	Karta	2
 2	Karta	2
+3	Karta	3
+4	Karta	3

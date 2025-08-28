@@ -1,0 +1,10 @@
+Projekt na laboratoria sierpień 2025.
+Repozytoriu ma github https://github.com/KubaSHL/InvoiceGeneratorLabProject.git
+
+Nie wszystko jest dopieszczone, wydruk też wygląda markowo ale to proof of concept.
+Nie dodałem tez ustawiania własnych ścieżek i tworzenia plików bazy.
+
+Z ciekawych funkcji:
+podwójne kliknięcie na fakture otwiera informacje o niej i pozwala na modyfikacje
+nie można usunąć użytych kontrahentów ani produktów
+wydruki generują sie w /invoicegenerator/database/testpdf.pdf

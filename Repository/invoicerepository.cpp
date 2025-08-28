@@ -15,6 +15,11 @@ QList<InvoiceBodyModel> InvoiceRepository::GetAllInvoices()
     return InvoiceDAL().GetAllInvoices();
 }
 
+QList<InvoiceBodyModel> InvoiceRepository::GetInvoiceByContractor(int contractorId)
+{
+    return InvoiceDAL().GetInvoiceByContractor(contractorId);
+}
+
 bool InvoiceRepository::AddInvoice(InvoiceBodyModel inv, int &invoiceId)
 {
     return InvoiceDAL().AddInvoice(inv,invoiceId);

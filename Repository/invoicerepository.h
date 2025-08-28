@@ -13,6 +13,8 @@ public:
     bool DeleteInvoice(InvoiceBodyModel inv);
     bool UpdateInvoice(InvoiceBodyModel inv);
     QList<InvoiceBodyModel> GetAllInvoices();
+    QList<InvoiceBodyModel> GetInvoiceByContractor(int contractorId);
+
 };
 
 #endif // INVOICEREPOSITORY_H

@@ -1,0 +1,63 @@
+<div name="invoiceNumber">
+<p style="text-align: left;">Faktura NR:%nrInvoice%</p>
+</div>
+<div name="contractor">
+
+<table style="border-collapse: collapse; width: 50%; float: left; height: 70px;" border="1">
+<tbody>
+<tr style="height: 16px;">
+<td style="width: 50%; height: 16px;">Imie</td>
+<td style="width: 50%; height: 16px;">%Imie%</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px;">Nazwisko</td>
+<td style="width: 50%; height: 18px;">%Nazwisko%</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px;">Adres</td>
+<td style="width: 50%; height: 18px;">%Adres%</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px;">NIP</td>
+<td style="width: 50%; height: 18px;">%NIP%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div name="positionsHeaders">
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<table style="border-collapse: collapse; width: 100%; margin-left: auto; margin-right: auto; height: 18px;" border="1">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 12.5%; height: 18px;">LP</td>
+<td style="width: 12.5%; height: 18px;">Nazwa</td>
+<td style="width: 12.5%; height: 18px;">EAN</td>
+<td style="width: 7.73327%; height: 18px;">Ilosc</td>
+<td style="width: 17.2667%; text-align: center; height: 18px;">Cena jednostkowa net</td>
+<td style="width: 12.5%; height: 18px;">Wartość net</td>
+<td style="width: 12.5%; height: 18px;">Stawka Vat</td>
+<td style="width: 12.5%; height: 18px;">Wartość Brutto</td>
+</tr>
+%content%
+</tbody>
+</table>
+</div>
+<div name="footeSum">
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<table style="border-collapse: collapse; width: 33.2657%; height: 36px; float: right;" border="1">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 33.3333%; height: 18px;">Razem netto</td>
+<td style="width: 33.3333%; height: 18px;">%razemNet%</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 33.3333%; height: 18px;">Razem brutto</td>
+<td style="width: 33.3333%; height: 18px;">%razemBrut%</td>
+</tr>
+</div>
+</tbody>
+</table>

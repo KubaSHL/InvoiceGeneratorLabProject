@@ -52,3 +52,19 @@ bool InvoiceDAL::UpdateInvoice(InvoiceBodyModel inv){
 }
 
 
+QList<InvoiceBodyModel> InvoiceDAL::GetInvoiceByContractor(int contractorId){
+    QList<InvoiceBodyModel> allInvoices;
+    for (const QStringList &line :  fileWorker->ReadFileContent(filePath)) {
+        if(line[2].toInt()==contractorId)
+        {
+        InvoiceBodyModel inv;
+        inv.setId(line[0].toInt());
+        inv.setPayment(line[1].toStdString());
+        inv.setContractorId(line[2].toInt());
+        allInvoices.append(inv);
+        }
+    }
+    return allInvoices;
+}
+
+

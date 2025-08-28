@@ -2,6 +2,7 @@
 #define INVOICEDETAILSVIEW_H
 
 #include "Model/invoicebodymodel.h"
+#include "Workers/pdfworker.h"
 #include <QDialog>
 #include <QStandardItemModel>
 
@@ -31,10 +32,13 @@ private slots:
 
     void on_tableWidget_positions_cellChanged(int row, int column);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::InvoiceDetailsView *ui;
     QStandardItemModel *modelCt;
     InvoiceBodyModel invoice;
+    pdfworker worker;
 };
 
 #endif // INVOICEDETAILSVIEW_H

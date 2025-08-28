@@ -15,7 +15,7 @@ public:
     bool UpdateContractor(ContractorModel ct);
 
 private:
-    const QString filePath = "C:\\Users\\sageh\\Downloads\\InvoiceGenerator\\InvoiceGenerator\\Database\\contractors.txt";//do zmiany
+    const QString filePath = "..\\..\\..\\InvoiceGenerator\\Database\\contractors.txt";//do zmiany
     FileWorker* fileWorker;
 
 };

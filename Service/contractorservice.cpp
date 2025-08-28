@@ -1,5 +1,8 @@
 #include "contractorservice.h"
 #include "Repository/contractorrepository.h"
+#include "Service/invoiceservice.h"
+
+#include <Repository/invoicerepository.h>
 
 ContractorService::ContractorService() {}
 
@@ -22,6 +25,9 @@ bool ContractorService::AddContractor(ContractorModel ct)
 
 bool ContractorService::DeleteContractor(ContractorModel ct)
 {
+    if(InvoiceRepository().GetInvoiceByContractor(ct.getId()).size()>0){
+        return false;
+    }
     return ContractorRepository().DeleteContractor(ct);
 
 }

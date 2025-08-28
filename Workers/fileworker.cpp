@@ -1,5 +1,8 @@
 #include "fileworker.h"
 
+#include <QMap>
+#include <QRegularExpression>
+
 
 FileWorker::FileWorker() {}
 
@@ -139,4 +142,33 @@ int FileWorker::AddObjectToFile(const QString &filePath, const QStringList &valu
 
     file.close();
     return newId;
+}
+
+
+
+QMap<QString, QString> FileWorker::GetHTMLTemplate(const QString &filePath)
+{
+    QMap<QString, QString> divs;
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning( "Nie można otworzyć pliku");
+        return divs;
+    }
+
+    QTextStream in(&file);
+    QString htmlContent = in.readAll();
+    file.close();
+
+    QRegularExpression divRegex(R"(<div\s+name="([^"]+)\">([\s\S]*?)<\/div>)", QRegularExpression::CaseInsensitiveOption);
+
+    QRegularExpressionMatchIterator i = divRegex.globalMatch(htmlContent);
+    while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+        QString divName = match.captured(1).trimmed();
+        QString divContent = match.captured(2).trimmed();
+        divs.insert(divName, divContent);
+    }
+
+    return divs;
 }

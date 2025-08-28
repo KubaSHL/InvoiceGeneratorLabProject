@@ -12,6 +12,8 @@ public:
     bool RemoveLineFromFile(const QString &filePath, int id);
     bool ModifyLineInFile(const QString &filePath, int id, const QStringList &newValues);
     int AddObjectToFile(const QString &filePath, const QStringList &valuesWithoutId);
+    QMap<QString, QString> GetHTMLTemplate(const QString &filePath);
+
 };
 
 #endif // FILEWORKER_H
