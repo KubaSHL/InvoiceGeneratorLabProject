@@ -11,7 +11,6 @@ QList<InvoiceBodyModel> InvoiceDAL::GetAllInvoices(){
         inv.setPayment(line[1].toStdString());
         inv.setContractorId(line[2].toInt());
         allInvoices.append(inv);
-        break;
     }
     return allInvoices;
 }
@@ -22,10 +21,10 @@ InvoiceBodyModel InvoiceDAL::GetInvoice(int id){
     for (const QStringList &line :  fileWorker->ReadFileContent(filePath)) {
         if(line[0].toInt()==id)
         {
-            InvoiceBodyModel inv;
             inv.setId(line[0].toInt());
             inv.setPayment(line[1].toStdString());
             inv.setContractorId(line[2].toInt());
+            break;
         }
     }
     return inv;
@@ -33,9 +32,9 @@ InvoiceBodyModel InvoiceDAL::GetInvoice(int id){
 
 bool InvoiceDAL::AddInvoice(InvoiceBodyModel inv, int &invoiceId){
 
-    QString name = QString::fromStdString(inv.getPayment());
-    QString sname = QString::number(inv.getContractorId());
-    QStringList newinv = {name,sname};
+    QString payment = QString::fromStdString(inv.getPayment());
+    QString contractor = QString::number(inv.getContractorId());
+    QStringList newinv = {payment,contractor};
     invoiceId = fileWorker->AddObjectToFile(filePath,newinv);
     return invoiceId==0?false:true;
 }
@@ -46,8 +45,10 @@ bool InvoiceDAL::DeleteInvoice(InvoiceBodyModel inv){
 
 bool InvoiceDAL::UpdateInvoice(InvoiceBodyModel inv){
     QString id = QString::number(inv.getId());
-    QString name = QString::fromStdString(inv.getPayment());
-    QString sname = QString::number(inv.getContractorId());
-    QStringList newinv = {name,sname};
-    return fileWorker->AddObjectToFile(filePath,newinv);
+    QString payment = QString::fromStdString(inv.getPayment());
+    QString contractor = QString::number(inv.getContractorId());
+    QStringList newinv = {id,payment,contractor};
+    return fileWorker->ModifyLineInFile(filePath,inv.getId(),newinv);
 }
+
+

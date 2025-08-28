@@ -9,6 +9,7 @@ InvoiceBodyModel InvoiceService::GetInvoice(int id)
 {
     InvoiceBodyModel inv = InvoiceRepository().GetInvoice(id);
     inv.setInvoiceHeader(ContractorRepository().GetContractor(inv.getContractorId()));
+    inv.setPositionList(PositionRepository().GetAllPositionsForInvoice(id));
     return inv;
 }
 
@@ -17,7 +18,10 @@ QList<InvoiceBodyModel> InvoiceService::GetAllInvoices()
 
     QList<InvoiceBodyModel> invList = InvoiceRepository().GetAllInvoices();
     for(InvoiceBodyModel &inv : invList){
+        int invid = inv.getId();
         inv.setInvoiceHeader(ContractorRepository().GetContractor(inv.getContractorId()));
+        inv.setPositionList(PositionRepository().GetAllPositionsForInvoice(invid));
+
     }
     return invList;
 
@@ -45,6 +49,14 @@ bool InvoiceService::DeleteInvoice(InvoiceBodyModel inv)
 
 bool InvoiceService::UpdateInvoice(InvoiceBodyModel inv)
 {
-    return InvoiceRepository().UpdateInvoice(inv);
+    int invoiceInt = inv.getId();
+    bool invoiceUpdated = InvoiceRepository().UpdateInvoice(inv);
+    bool positionsUpdated = true;
+    for(PositionModel &pos : inv.getPositionList())
+    {
+        pos.setInvoiceId(invoiceInt);
+        PositionRepository().UpdatePosition(pos)?positionsUpdated=true:positionsUpdated=false;
+    }
+    return invoiceUpdated*positionsUpdated;
 
 }

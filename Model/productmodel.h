@@ -14,7 +14,7 @@ private:
     float priceGross;
     float VAT;
 public:
-    ProductModel();
+    ProductModel(): id(0), priceNet(0.0f), priceGross(0.0f), VAT(0.0f){};
 
     std::string getName() const;
     void setName(const std::string &newName);

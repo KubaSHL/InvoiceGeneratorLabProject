@@ -50,14 +50,14 @@ void PositionModel::setValueNet(float newValueNet)
     valueNet = newValueNet;
 }
 
-float PositionModel::getValueGross() const
+float PositionModel::getPriceNet() const
 {
-    return valueGross;
+    return priceNet;
 }
 
-void PositionModel::setValueGross(float newValueGross)
+void PositionModel::setPriceNet(float newPriceNet)
 {
-    valueGross = newValueGross;
+    priceNet = newPriceNet;
 }
 
-PositionModel::PositionModel() {}
+PositionModel::PositionModel(): productId(0), quantity(0), priceNet(0.0), valueNet(0.0) {};

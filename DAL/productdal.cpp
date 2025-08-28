@@ -21,7 +21,6 @@ QList<ProductModel> ProductDAL::GetAllProducts(){
         pm.setVAT(line[5].toFloat());
         pm.setPriceGross(line[6].toFloat());
         allProducts.append(pm);
-        break;
     }
     return allProducts;
 }
@@ -32,7 +31,6 @@ ProductModel ProductDAL::GetProduct(int id){
     for (const QStringList &line :  fileWorker->ReadFileContent(filePath)) {
         if(line[0].toInt()==id)
         {
-            ProductModel pm;
             pm.setId(line[0].toInt());
             pm.setName(line[1].toStdString());
             pm.setEan(line[2].toStdString());
@@ -40,6 +38,7 @@ ProductModel ProductDAL::GetProduct(int id){
             pm.setPriceNet(line[4].toFloat());
             pm.setVAT(line[5].toFloat());
             pm.setPriceGross(line[6].toFloat());
+            break;
         }
     }
     return pm;

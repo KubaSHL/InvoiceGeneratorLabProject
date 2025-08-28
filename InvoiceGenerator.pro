@@ -28,6 +28,8 @@ SOURCES += \
     contractorsview.cpp \
     dialogaddcontractor.cpp \
     dialogaddproduct.cpp \
+    dialognewinvoice.cpp \
+    dialognewinvoiceaddproduct.cpp \
     invoicedetailsview.cpp \
     invoiceview.cpp \
     main.cpp \
@@ -54,6 +56,8 @@ HEADERS += \
     contractorsview.h \
     dialogaddcontractor.h \
     dialogaddproduct.h \
+    dialognewinvoice.h \
+    dialognewinvoiceaddproduct.h \
     invoicedetailsview.h \
     invoiceview.h \
     mainwindow.h \
@@ -63,6 +67,8 @@ FORMS += \
     contractorsview.ui \
     dialogaddcontractor.ui \
     dialogaddproduct.ui \
+    dialognewinvoice.ui \
+    dialognewinvoiceaddproduct.ui \
     invoicedetailsview.ui \
     invoiceview.ui \
     mainwindow.ui \

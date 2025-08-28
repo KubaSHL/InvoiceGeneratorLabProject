@@ -8,8 +8,8 @@ private:
     int invoiceId;
     int productId;
     int quantity;
+    float priceNet;
     float valueNet;
-    float valueGross;
 public:
     PositionModel();
 
@@ -23,8 +23,8 @@ public:
     void setQuantity(int newQuantity);
     float getValueNet() const;
     void setValueNet(float newValueNet);
-    float getValueGross() const;
-    void setValueGross(float newValueGross);
+    float getPriceNet() const;
+    void setPriceNet(float newPriceNet);
 };
 
 #endif // POSITIONMODEL_H

@@ -12,7 +12,7 @@ ContractorsView::ContractorsView(QWidget *parent)
 {
     ui->setupUi(this);
     model = new QStandardItemModel(this);
-    model->setColumnCount(5);
+    model->setColumnCount(5);    
     model->setHeaderData(0, Qt::Horizontal, "ID");
     model->setHeaderData(1, Qt::Horizontal, "Imie");
     model->setHeaderData(2, Qt::Horizontal, "Nazwisko");
@@ -20,6 +20,8 @@ ContractorsView::ContractorsView(QWidget *parent)
     model->setHeaderData(4, Qt::Horizontal, "NIP");
 
     ui->tableView->setModel(model);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
     ShowContractors();
 }
 

@@ -10,10 +10,11 @@ public:
     PositionRepository();
     PositionModel GetPosition(int id);
     QList<PositionModel> GetAllPositions();
-    bool AddPosition(PositionModel ct);
-    bool DeletePosition(PositionModel ct);
-    bool UpdatePosition(PositionModel ct);
+    bool AddPosition(PositionModel pos);
+    bool DeletePosition(PositionModel pos);
+    bool UpdatePosition(PositionModel pos);
     QList<PositionModel> GetAllPositionsForInvoice(int &invoiceId);
+    QList<PositionModel> GetPositionWithProductId(int productId);
 };
 
 #endif // POSITIONREPOSITORY_H

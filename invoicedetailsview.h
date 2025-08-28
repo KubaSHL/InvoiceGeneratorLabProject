@@ -19,12 +19,22 @@ public:
 
     void OnContractorChanged(int index);
 
-    void SetInvoice(InvoiceBodyModel *thisInvoice);
+    void SetInvoice(InvoiceBodyModel thisInvoice);
     void ShowPositions();
+    void ShowContractor(int contractorId);
+    void SetComboBoxToContractor(int contractorId);
+private slots:
+
+    void on_pushButton_close_clicked();
+
+    void on_pushButton_update_clicked();
+
+    void on_tableWidget_positions_cellChanged(int row, int column);
+
 private:
     Ui::InvoiceDetailsView *ui;
     QStandardItemModel *modelCt;
-    InvoiceBodyModel *invoice;
+    InvoiceBodyModel invoice;
 };
 
 #endif // INVOICEDETAILSVIEW_H

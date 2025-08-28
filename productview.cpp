@@ -18,6 +18,8 @@ ProductView::ProductView(class QWidget *parent)
     model->setHeaderData(6, Qt::Horizontal, "Cena Brutton");
 
     ui->tableView->setModel(model);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
     ShowProducts();
 }
 
@@ -92,7 +94,7 @@ void ProductView::on_pushButton_del_clicked()
 {
     QModelIndex currentIndex = ui->tableView->currentIndex();
     if (!currentIndex.isValid()) {
-        QMessageBox::warning(this, "Uwaga", "Proszę zaznaczyć produkt do aktualizacji.");
+        QMessageBox::warning(this, "Uwaga", "Proszę zaznaczyć produkt do usunięcia.");
         return;
     }
 
@@ -109,11 +111,11 @@ void ProductView::on_pushButton_del_clicked()
 
     if(ProductService().DeleteProduct(pm)){
 
-        QMessageBox::information(this, "Info", "Produkt został zaktualizowany.");
+        QMessageBox::information(this, "Info", "Produkt został usunięty.");
     }
     else
     {
-        QMessageBox::warning(this, "Uwaga", "Produkt nie został zaktualizowany.");
+        QMessageBox::warning(this, "Uwaga", "Produkt nie może być usunięty.");
     }
 
     ShowProducts();

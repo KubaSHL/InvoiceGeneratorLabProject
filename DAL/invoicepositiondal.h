@@ -15,6 +15,7 @@ public:
     bool DeletePosition(PositionModel pos);
     bool UpdatePosition(PositionModel pos);
     QList<PositionModel> GetAllPositionsForInvoice(int &invoiceId);
+    QList<PositionModel> GetPositionWithProductId(int productId);
 private:
     const QString filePath = "C:\\Users\\sageh\\Downloads\\InvoiceGenerator\\InvoiceGenerator\\Database\\InvoicePositions.txt";//do zmiany
     FileWorker* fileWorker;

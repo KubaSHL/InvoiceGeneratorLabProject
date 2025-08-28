@@ -81,4 +81,3 @@ void ProductModel::setId(int newId)
     id = newId;
 }
 
-ProductModel::ProductModel() {}

@@ -11,10 +11,9 @@ QList<PositionModel> InvoicePositionDAL::GetAllPositions(){
         pos.setInvoiceId(line[1].toInt());
         pos.setProductId(line[2].toInt());
         pos.setQuantity(line[3].toInt());
-        pos.setValueNet(line[4].toFloat());
-        pos.setValueGross(line[5].toFloat());
+        pos.setPriceNet(line[4].toFloat());
+        pos.setValueNet(line[5].toFloat());
         allPositions.append(pos);
-        break;
     }
     return allPositions;
 }
@@ -29,8 +28,8 @@ QList<PositionModel> InvoicePositionDAL::GetAllPositionsForInvoice(int &invoiceI
             pos.setInvoiceId(line[1].toInt());
             pos.setProductId(line[2].toInt());
             pos.setQuantity(line[3].toInt());
-            pos.setValueNet(line[4].toFloat());
-            pos.setValueGross(line[5].toFloat());
+            pos.setPriceNet(line[4].toFloat());
+            pos.setValueNet(line[5].toFloat());
             allPositions.append(pos);
         }
 
@@ -48,8 +47,9 @@ PositionModel InvoicePositionDAL::GetPosition(int id){
             pos.setInvoiceId(line[1].toInt());
             pos.setProductId(line[2].toInt());
             pos.setQuantity(line[3].toInt());
-            pos.setValueNet(line[4].toFloat());
-            pos.setValueGross(line[5].toFloat());
+            pos.setPriceNet(line[4].toFloat());
+            pos.setValueNet(line[5].toFloat());
+            break;
         }
 
     }
@@ -61,9 +61,9 @@ bool InvoicePositionDAL::AddPosition(PositionModel pos){
     QString invoice = QString::number(pos.getInvoiceId());
     QString product = QString::number(pos.getProductId());
     QString quantity = QString::number(pos.getQuantity());
+    QString priceNet = QString::number(pos.getPriceNet());
     QString netVal = QString::number(pos.getValueNet());
-    QString grossVal = QString::number(pos.getValueGross());
-    QStringList newpos = {invoice,product,quantity,netVal,grossVal};
+    QStringList newpos = {invoice,product,quantity,priceNet,netVal};
     return fileWorker->AddObjectToFile(filePath,newpos)==0?false:true;
 
 }
@@ -77,8 +77,27 @@ bool InvoicePositionDAL::UpdatePosition(PositionModel pos){
     QString invoice = QString::number(pos.getInvoiceId());
     QString product = QString::number(pos.getProductId());
     QString quantity = QString::number(pos.getQuantity());
+    QString priceNet = QString::number(pos.getPriceNet());
     QString netVal = QString::number(pos.getValueNet());
-    QString grossVal = QString::number(pos.getValueGross());
-    QStringList newpos = {invoice,product,quantity,netVal,grossVal};
+    QStringList newpos = {id,invoice,product,quantity,priceNet,netVal};
     return fileWorker->ModifyLineInFile(filePath,pos.getId(),newpos);
+}
+
+QList<PositionModel> InvoicePositionDAL::GetPositionWithProductId(int productId)
+{
+    QList<PositionModel> allPositions;
+    for (const QStringList &line :  fileWorker->ReadFileContent(filePath)) {
+        if(line[2].toInt()==productId)
+        {
+            PositionModel pos;
+            pos.setId(line[0].toInt());
+            pos.setInvoiceId(line[1].toInt());
+            pos.setProductId(line[2].toInt());
+            pos.setQuantity(line[3].toInt());
+            pos.setPriceNet(line[4].toFloat());
+            pos.setValueNet(line[5].toFloat());
+            allPositions.append(pos);
+        }
+    }
+    return allPositions;
 }

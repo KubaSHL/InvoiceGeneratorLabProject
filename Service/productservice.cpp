@@ -1,4 +1,5 @@
 #include "productservice.h"
+#include "Repository/positionrepository.h"
 #include "Repository/productrepository.h"
 
 #include <QList>
@@ -22,5 +23,9 @@ bool ProductService::UpdateProduct(ProductModel pm){
 }
 
 bool ProductService::DeleteProduct(ProductModel pm){
+    if(PositionRepository().GetPositionWithProductId(pm.getId()).size()>0){
+        return false;
+    }
+
     return ProductRepository().DeleteProduct(pm);
 }

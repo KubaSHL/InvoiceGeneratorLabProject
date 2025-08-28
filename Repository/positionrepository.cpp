@@ -32,3 +32,8 @@ bool PositionRepository::UpdatePosition(PositionModel pos)
 {
     return InvoicePositionDAL().UpdatePosition(pos);
 }
+
+QList<PositionModel> PositionRepository::GetPositionWithProductId(int productId)
+{
+    return InvoicePositionDAL().GetPositionWithProductId(productId);
+}
